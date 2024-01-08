@@ -1,0 +1,12 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "\"Backend\"\u001b[D\u001b[C",
+  "main": "\u001b[D\u001b[D\u001b[D\u001b[script.js)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tejwant Kaur",
+  "license": "ISC",
+  "keywords": []
+}
