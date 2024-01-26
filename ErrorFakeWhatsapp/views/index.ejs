@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whatsapp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h3>All Chats</h3>
+    <div class="btns">
+        <form method="GET" action="/chats/new">
+            <button class="btn">New Chat</button>
+        </form>
+        
+    </div>
+    
+    <% for(let chat of chats) { %>
+        <div class="chat">
+            <p>From: <i><%= chat.from %></i></p>
+
+            <div class="msg">
+                <p>Message: <%= chat.msg %></p>
+            </div>
+            <br>
+            <div class="btns">
+                <form method="GET" action="/chats/<%= chat._id %>/edit">
+                    <button class="btn">Update</button>
+                </form>
+
+                <form id="deleteForm" method="POST" action="/chats/<%= chat._id %>?_method=DELETE">
+                    <button class="btn" onclick="return confirmDelete()">Delete</button>
+                </form>
+
+                <form method="GET" action="/chats/<%= chat._id %>">
+                    <button class="btn">Show</button>
+                </form>
+                
+            </div>
+
+            <p>Recieved By: <i><%= chat.to %></i></p>
+            <p><%= chat.created_at.toString().split(" ")[4]  %></p>
+            <p><%= chat.created_at.toString().split(" ").slice(0,4).join("-")  %></p>
+            
+        </div>
+        <br> <br>
+    <% } %>
+    
+    <script>
+        function confirmDelete() {
+            var isConfirmed = confirm("Are you sure you want to delete this chat?");
+            
+            if (isConfirmed) {
+                // If the user confirms, submit the form
+                document.getElementById('deleteForm').submit();
+            } else {
+                // If the user cancels, do nothing or show a message
+                console.log("Deletion canceled.");
+                return false;
+            }
+        }
+    </script>
+
+</body>
+</html>

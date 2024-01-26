@@ -1,5 +1,5 @@
 {
-  "name": "errorfakewhatsapp",
+  "name": "relationships",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,9 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ejs": "^3.1.9",
     "express": "^4.18.2",
-    "method-override": "^3.0.0",
-    "mongoose": "^8.1.0"
+    "mongoose": "^8.1.1"
   }
 }
